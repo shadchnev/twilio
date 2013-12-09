@@ -18,18 +18,14 @@ class Array
 
 end
 
-p [1,2,3].new_inject(:*)
-
 class Array
 
-  def recursive_inject (*args, &block)
-    sum = args
-    raise 'wrong args' if args.length>1
-    return self.first if self.length == 1 && args.empty?
-    return self.first if self.length == 1
-    sum += yield(sum, recursive_inject(self.pop) {block})
+  def rinject (sum=nil, &block)
+    return sum if self.empty?
+    sum ||= self.shift
+    sum = yield(sum,self.shift)
+    self.rinject(sum, &block)
   end
 
 end
 
-[1,2,3].recursive_inject(0) { |a,b| a << b }
