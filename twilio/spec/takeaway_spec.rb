@@ -10,7 +10,7 @@ describe Takeaway do
       expect(takeaway.menu.length).to eq(5)
     end
 
-    it 'should include PIZZA biatch' do
+    it 'should include PIZZA bitch' do
       expect(takeaway.menu.keys.include?(:Italian)).to be_true
     end
 
@@ -18,6 +18,7 @@ describe Takeaway do
       expect(takeaway.total_cost(:Italian, :Thai)).to eq(19.70)
     end
 
+    # This test should stub sending the text!    
     it 'should return Italian and Thai order list' do
       expect(takeaway.order(:Italian, :Thai)).to eq([:Italian, :Thai])
     end

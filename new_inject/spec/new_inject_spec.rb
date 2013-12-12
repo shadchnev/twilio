@@ -1,6 +1,5 @@
 require 'new_inject'
 
-
 describe 'new_inject ' do
 
   context 'inheritance' do
@@ -24,7 +23,7 @@ describe 'new_inject ' do
     end
 
     it 'the optional argument cannot be longer than 1' do
-      expect{[1].new_inject(1,2)}.to raise_error(RuntimeError)
+      expect{[1].new_inject(1,2)}.to raise_error
     end
 
   end
